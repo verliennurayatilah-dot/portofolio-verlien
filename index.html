@@ -1,0 +1,707 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Verlien</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f0e9;
+            color: #29251f;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: #f4f0e9;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #ded8ce;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #29251f;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: #a58c71;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 650px;
+            padding: 70px 8%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+        }
+
+        .small-text {
+            font-size: 10px;
+            letter-spacing: 5px;
+            margin-bottom: 35px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(65px, 12vw, 145px);
+            font-weight: 400;
+            line-height: .95;
+            letter-spacing: -5px;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-style: italic;
+            color: #a58c71;
+        }
+
+        .hero-photo {
+            width: 190px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 100px 100px 0 0;
+            border: 5px solid #f4f0e9;
+            margin-top: -15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-caption {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            border: 1px solid #a58c71;
+            border-radius: 30px;
+            padding: 7px 30px;
+            display: table;
+            margin: 15px auto;
+        }
+
+        .star {
+            position: absolute;
+            font-size: 35px;
+            color: #29251f;
+        }
+
+        .star.one {
+            top: 20px;
+            left: 5%;
+        }
+
+        .star.two {
+            right: 5%;
+            bottom: 30%;
+        }
+
+        /* GENERAL SECTION */
+        section {
+            padding: 90px 8%;
+            scroll-margin-top: 75px;
+        }
+
+        .section-label {
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #a58c71;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+            background: #eae3d8;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .about-text p {
+            font-size: 14px;
+            line-height: 2;
+            color: #655d54;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            margin-top: 25px;
+            font-size: 13px;
+            line-height: 2.5;
+        }
+
+        .info span {
+            color: #a58c71;
+            font-weight: 600;
+        }
+
+        /* EDUCATION */
+        .education {
+            background: #f4f0e9;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .education-card {
+            padding: 35px;
+            border: 1px solid #cfc5b8;
+            background: #faf8f4;
+        }
+
+        .education-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .education-card p {
+            color: #777067;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        /* SKILLS */
+        .skills {
+            background: #e7ded2;
+        }
+
+        .skills-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: #f7f3ed;
+            padding: 25px 15px;
+            text-align: center;
+            border: 1px solid #d6cabb;
+            transition: .3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .skill-item p {
+            font-size: 11px;
+            margin-top: 8px;
+            color: #887b6c;
+        }
+
+        /* PROJECTS */
+        .projects {
+            background: #f4f0e9;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #eae3d8;
+            padding: 15px;
+            transition: .3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .project-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            margin: 18px 0 8px;
+        }
+
+        .project-card p {
+            font-size: 12px;
+            color: #756b60;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: #8d7255;
+            font-size: 12px;
+        }
+
+        /* HOBBIES */
+        .hobbies {
+            background: #eae3d8;
+            text-align: center;
+        }
+
+        .hobby-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .hobby {
+            border: 1px solid #a58c71;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            background: #f4f0e9;
+        }
+
+        .contact p {
+            color: #756b60;
+            line-height: 2;
+            font-size: 14px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 35px;
+            background: #29251f;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            transition: .3s;
+        }
+
+        .contact-button:hover {
+            background: #a58c71;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 25px;
+            text-align: center;
+            font-size: 11px;
+            letter-spacing: 2px;
+            border-top: 1px solid #ded8ce;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #f4f0e9;
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+                gap: 25px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .about,
+            .skills-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .education-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 38px;
+            }
+
+            .about-image img {
+                height: 350px;
+            }
+
+            section {
+                padding: 65px 7%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">VERLIEN.</div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#education">EDUCATION</a></li>  
+            <li><a href="#projects">MY PROJECT</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+        <div class="star one">✦</div>
+        <div class="star two">✧</div>
+
+        <div class="hero-content">
+            <p class="small-text">WELCOME TO MY PERSONAL WEBSITE</p>
+
+            <h1>
+                PORTOFOLIO
+            </h1>
+
+            <img  
+                src="images/profile.jpeg.jpeg "
+                class="hero-photo"
+                alt="Profile">
+
+            <div class="hero-caption">Verlien Nur Ayatilah</div>
+
+            <p class="small-text">STUDENT • WEB DEVELOPER</p>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+      
+<div class="about-text">
+
+    
+<p>
+    Halo! Saya <b>Verlien Nur Ayatilah</b>,
+    seorang siswi SMKN 5 Malang jurusan
+    Pengembangan Perangkat Lunak dan Gim (PPLG).
+</p>
+
+<p>
+    Saya memiliki ketertarikan yang besar terhadap
+    teknologi, pemrograman, dan desain digital kreatif.
+    Saya senang mempelajari hal-hal baru serta
+    mengeksplorasi cara kerja website dan aplikasi.
+</p>
+
+<p>
+    Saat ini, saya sedang mempelajari HTML, CSS,
+    PHP, MySQL, dan Flutter untuk mengembangkan
+    kemampuan saya di bidang pemrograman.
+</p>
+
+<p>
+    Tujuan saya adalah menjadi seorang Web Developer
+    yang terampil serta mampu menciptakan pengalaman
+    digital yang bermanfaat, kreatif, dan inovatif.
+</p>
+
+<div class="info">
+    <p><span>Nama :</span> Verlien Nur Ayatilah</p>
+    <p><span>Sekolah :</span> SMKN 5 Malang</p>
+    <p><span>Jurusan :</span> PPLG / RPL</p>
+    <p><span>Minat :</span> Pengembangan Web</p>
+    <p><span>Profesi :</span> Pelajar</p>
+    <p><span>Cita-cita :</span> Web Developer</p>
+</div>
+</div>
+        </div>
+
+        <div class="about-image">
+            <img
+                src="images/aboutme.jpg"
+                alt="About me">
+        </div>
+
+    </section>
+
+    <!-- EDUCATION -->
+    
+<section class="education" id="education">
+
+    <p class="section-label">MY ACADEMIC JOURNEY</p>
+    <h2 class="section-title">Education ✦</h2>
+
+    <div class="education-grid">
+
+        <div class="education-card">
+            <p>2026 - Present</p>
+
+            <h3>SMKN 5 Malang</h3>
+
+            <p><b>Pengembangan Perangkat Lunak dan Gim (PPLG)</b></p>
+
+            <p>
+Saat ini saya sedang menempuh pendidikan di jurusan Pengembangan
+Perangkat Lunak dan Gim (PPLG), dengan fokus mempelajari pemrograman,
+pengembangan website, pengelolaan basis data, serta pembuatan aplikasi.
+            </p>
+        </div>
+
+        <div class="education-card">
+            <h3>Learning Focus</h3>
+
+            <p>✦ Web Development</p>
+            <p>✦ Programming Fundamentals</p>
+            <p>✦ Database Management</p>
+            <p>✦ Mobile Application Development</p>
+            <p>✦ UI/UX Design</p>
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+
+        <p class="section-label">A COLLECTION OF MY PROJECT</p>
+        <h2 class="section-title">My Project</h2>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <img
+                    src="images/porto.jpeg"
+                    alt="Website project">
+
+                <h3>Personal Portofolio Website</h3>
+
+                <p>
+                    A personal website created using
+                    HTML and CSS as a learning project.
+                </p>
+
+                <a href="#">VIEW PROJECT ↗</a>
+            </div>
+
+            <div class="project-card">
+                <img
+                    src="images/sanur.png"
+                    alt="Application project">
+
+                <h3>Sanur Beach App</h3>
+
+                <p>
+                    A mobile application introducing
+                    Sanur Beach, developed using Flutter.
+                </p>
+
+                <a href="#">VIEW PROJECT ↗</a>
+            </div>
+
+            <div class="project-card">
+                <img
+                    src="images/menumakanan.png"
+                    alt="UI design">
+
+                <h3>Menu Makanan APP</h3>
+
+                <p>
+                    The food menu displays a variety of delicious meals and drinks available in our app.
+                    Customers can explore the menu, view food descriptions and prices,
+                    and choose their favorite dishes easily.
+                </p>
+
+                <a href="#">VIEW PROJECT ↗</a>
+            </div>
+
+            <div class="project-card">
+                <img
+                    src="images/volume.png"
+                    alt="Database project">
+
+                <h3>Volume Calculator App</h3>
+
+                <p>
+                    A simple app to calculate the volume of a rectangular prism quickly and easily.
+                </p>
+
+                <a href="#">VIEW PROJECT ↗</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HOBBIES -->
+    <section class="hobbies">
+
+        <p class="section-label">THINGS I LOVE</p>
+        <h2 class="section-title">Interest & Hobbies</h2>
+
+        <div class="hobby-list">
+            <div class="hobby">Photography</div>
+            <div class="hobby">Design</div>
+            <div class="hobby">Technology</div>
+            <div class="hobby">Learning</div>
+            <div class="hobby">Exploring</div>
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <p class="section-label">LET'S CONNECT</p>
+        <h2 class="section-title">Get In Touch</h2>
+
+      
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <p class="section-label">LET'S CONNECT</p>
+
+    <h2 class="section-title">Get In Touch</h2>
+
+    <p>
+        Thank you for visiting my portfolio.
+        <br> 
+        Feel free to connect with me!
+    </p>
+
+    <div class="contact-links">
+
+        <!-- INSTAGRAM -->
+        <a
+            href="https://www.instagram.com/peerr.v/"
+            target="_blank"
+            class="contact-button">
+            INSTAGRAM ↗
+        </a>
+
+        <!-- EMAIL -->  
+        <a
+            href="mailto:verliennurayatilah@gmail.com"
+            class="contact-button">
+            EMAIL ME ↗
+        </a>
+
+    </div>
+
+</section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 VERLIEN NUR AYATILAH · PERSONAL PORTFOLIO
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function toggleMenu() {
+            document.getElementById("navLinks")
+                .classList.toggle("active");
+        }
+
+        // Close navbar after clicking a link
+        document.querySelectorAll(".nav-links a")
+            .forEach(link => {
+                link.addEventListener("click", function() {
+                    document.getElementById("navLinks")
+                        .classList.remove("active");
+                });
+            });
+    </script>
+
+</body>
+</html>
